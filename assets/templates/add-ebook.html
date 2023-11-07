@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="card shadow col-12 col-md-8 m-auto mt-5" style="margin-bottom: 90px !important;">
+        <form class="col-12 col-md-11 m-auto mt-6" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="text-center mb-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">Add Ebook</h1><hr><br>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-5 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Book Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Book name" name="bname" required/>
+                </div>
+                <div class="col-12 col-md-5 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Author</label>
+                    <input type="text" class="form-control" placeholder="Enter Author name" name="author" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-5 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Cover Photo</label>
+                    <input type="file" class="form-control" name="cphoto" required/>
+                </div>
+                <div class="col-12 col-md-5 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">File</label>
+                    <input type="file" class="form-control" name="ffile" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-11 d-flex justify-content-evenly">
+                <div class="col-12 col-md-11 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Notes</label>
+                    <textarea class="form-control" name="notes" placeholder="Enter notes.."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary d-flex m-auto mb-5" id="kt_careers_submit_button">
+                <span class="indicator-label">Add Ebook</span>
+            </button>
+        </form>
+    </div>
+    
+	{% endblock content %}
+		

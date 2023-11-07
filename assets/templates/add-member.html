@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="card shadow col-12 col-md-8 m-auto mt-5" style="margin-bottom: 80px !important;">
+        <form class="col-12 col-md-11 m-auto mt-6" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter full name" name="name" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Date of Birth</label>
+                    <input type="date" class="form-control" placeholder="Select date of birth" name="dob" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Gender</span>
+                    </label>
+                    <select name="gender" data-control="select2" data-placeholder="Select gender..." class="form-select" required>
+                        <option></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter email address" name="email" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Phone</label>
+                    <input type="tel" class="form-control" placeholder="Enter phone number" name="phone" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Member Type</span>
+                    </label>
+                    <select name="membertype" data-control="select2" data-placeholder="Select member type..." class="form-select" required>
+                        <option></option>
+                        <option value="1">Student</option>
+                        <option value="2">Faculty</option>
+                        {% comment %} <option value="3">Librarian</option> {% endcomment %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Status</span>
+                    </label>
+                    <select name="status" data-control="select2" data-placeholder="Select status..." class="form-select" required>
+                        <option></option>
+                        <option value="1">Active</option>
+                        <option value="2">Block</option>
+                    </select>                    
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Joining Date</label>
+                    <input type="date" class="form-control" placeholder="Select date of birth" name="joindate" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Upload Photo</label>
+                    <input type="file" class="form-control" placeholder="Choose photo" name="photo" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-12 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Address</label>
+                    <textarea class="form-control" placeholder="Enter address" name="address" required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex m-auto mb-5" id="kt_careers_submit_button">
+                <span class="indicator-label">Submit</span>
+            </button>
+        </form>
+    </div>
+    
+	{% endblock content %}
+		

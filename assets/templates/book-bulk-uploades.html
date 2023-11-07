@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="col-6 card d-flex m-auto mt-6" style="margin-bottom:300px !important;">
+        <a href="media/book-bulk-data.xlsx" download>
+            <button class="btn btn-info d-flex ms-auto m-6">Download Excel Format</button>
+        </a>
+        <form method='post' enctype="multipart/form-data" class="my-6">
+            {% csrf_token %}
+            <h1 class="text-center my-6">Upload Book data</h1>
+            <label class="ms-6 mt-6 mb-2 fw-bold">Select Book Category</label>
+            <select class="form-control m-auto" name="bcat" style="width:95%" required>
+                <option disabled selected>Choose Book Category</option>
+                {% for i in bcat %}
+                    <option value="{{i.bookcategoryid}}">{{i.name}}</option>
+                {% endfor %}
+            </select>
+            <label class="ms-6 mt-6 mb-2 fw-bold">Select a file:</label>
+            <input type="file" name="bookfile" class="form-control m-auto" style="width:95%" accept=".xlsx, .xls, .csv" required>
+            <input type="submit" class="btn btn-primary d-flex m-auto my-5">
+        </form>
+    </div>
+    {% endblock content %}

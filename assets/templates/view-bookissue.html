@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+	{% block content %}
+    <div class="row gy-5 g-xl-12 justify-content-end" style="margin-bottom: 100px;">
+
+        <!--begin::Security summary-->
+        <div class="card d-flex flex-column col-xl-3 text-center">
+            <div class="card-body">
+                <img src="/media/{{data.memberid.photo}}" class="m-auto my-2" style="border-radius:50%; width: 100px; height:100px"/>
+                <h1>{{data.memberid.name}}</h1>
+                <p>Member</p>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <p>Gender</p>
+                    <h6>{{data.memberid.gender}}</h6>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <p>Phone</p>
+                    <h6>{{data.memberid.phone}}</h6>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <p>Email</p>
+                    <h6>{{data.memberid.email}}</h6>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="card card-xxl-stretch col-xl-8" >
+            <!--begin::Header-->
+            <div class="card-header card-header-stretch">
+                <!--begin::Title-->
+                <div class="card-title">
+                    <h2 class="m-0 text-gray-900">Book Issue</h2>
+                </div>
+                <!--end::Title-->
+                <!--begin::Toolbar-->
+                <div class="card-toolbar">
+                    <ul class="nav nav-tabs nav-line-tabs nav-stretch border-transparent fs-5 fw-bold" id="kt_security_summary_tabs">
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary active" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_security_summary_tab_pane_hours">Book Issue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary" data-kt-countup-tabs="true" data-bs-toggle="tab" id="kt_security_summary_tab_day" href="#kt_security_summary_tab_pane_day">Renew History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary" data-kt-countup-tabs="true" data-bs-toggle="tab" id="kt_security_summary_tab_week" href="#kt_security_summary_tab_pane_week">Payment Information:</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body pt-7 pb-0 px-0">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="kt_security_summary_tab_pane_hours" role="tabpanel">
+                        
+                        <div class="pt-2">
+                            <div class="d-flex align-items-center pb-6 px-9">
+                                <h1 class="m-0 text-gray-900 flex-grow-1 text-center" style="text-decoration: underline;">Book Issue Information</h1>
+                            </div><br>
+                            <div class="tab-content px-3">
+                                <div class="tab-pane fade active show d-flex justify-content-evenly" id="kt_security_summary_tab_pane_hours_agents" role="tabpanel">
+                                    <div id="kt_security_summary_chart_hours_agents" class="fs-5" style="height: 310px">
+                                        <p>Book Name: <b>{{book.name}}</b> </p>
+                                        <p>Book Number: <b>{{data.bookno}}</b> </p>
+                                        <p>Issue Date:  <b>{{data.issue_date}}</b> </p>
+                                        <p>Renewed Time: <b>{{data.renewed}} / 10</b> </p>
+                                        <p>Fine Amount: <b>{{data.fineamount}}</b></p>
+                                        <p>Payment Amount: <b>{{data.paymentamount}}</b> </p>
+                                    </div>
+                                    <div id="kt_security_summary_chart_hours_agents" class="fs-5" style="height: 300px">
+                                        <p>Book Code No: <b>{{book.codeno}}</b> </p>
+                                        <p>Book Status:   <b>{{data.status}}</b> </p>
+                                        <p>Expire Date:  <b>{{data.expire_date}}</b> </p>
+                                        <p>Fine Per Day:  <b>{{data.book_fine_per_day}}</b></p>
+                                        <p>Discount Amount: <b>{{data.discountamount}}</b> </p>
+                                        <p>Due Amount: <b>{{data.}}</b> </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="kt_security_summary_tab_pane_hours_clients" role="tabpanel">
+                                    <div id="kt_security_summary_chart_hours_clients" style="height: 300px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="kt_security_summary_tab_pane_day" role="tabpanel">
+                        
+                        <div class="pt-2">
+                            <div class="d-flex align-items-center pb-9 px-9">
+                                <h3 class="m-0 text-gray-800 flex-grow-1">Book Renew History:</h3>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane fade active show" id="kt_security_summary_tab_pane_day_agents" role="tabpanel">
+                                    <div id="kt_security_summary_chart_day_agents" style="height: 326px">
+                                        <table id="example" class="table align-middle table-hover  fs-6 gy-5" id="">
+                                            <thead>
+                                                <tr class="text-center text-dark fw-bold fs-6 text-uppercase bg-primary gs-0">
+                                                    <th class="w-20px pe-2">S.No</th>
+                                                    <th class="min-w-120px">Book Status</th>
+                                                    <th class="min-w-120px">Renewed</th>
+                                                    <th class="min-w-120px">Fine Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table" class="text-gray-900 text-center fw-semibold">
+                                                {% for i in book_renew %}
+                                                    <tr>
+                                                        <td>{{forloop.counter}}</td>
+                                                        <td>
+                                                            {% if i.status == 0 %}
+                                                                <span class="text-warning">Issued</span>
+                                                            {% else %}
+                                                                <span class="text-success">Return</span>
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>{{i.renewed}}</td>
+                                                        <td>{{i.fineamount}}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kt_security_summary_tab_pane_day_clients" role="tabpanel">
+                                    <div id="kt_security_summary_chart_day_clients" style="height: 300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="kt_security_summary_tab_pane_week" role="tabpanel">
+                        <div class="pt-2">
+                            <div class="d-flex align-items-center pb-9 px-9">
+                                <h3 class="m-0 text-gray-800 flex-grow-1">Payment Information:</h3>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane fade active show" id="kt_security_summary_tab_pane_week_agents" role="tabpanel">
+                                    <div id="kt_security_summary_chart_week_agents" style="height: 326px">
+                                        <p style="margin-left: 30px;">Payment and discount data not found.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kt_security_summary_tab_pane_week_clients" role="tabpanel">
+                                    <div id="kt_security_summary_chart_week_clients" style="height: 300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	{% endblock content %}
+		

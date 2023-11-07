@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+	{% block content %}
+	<div class="container" style="margin-bottom: 300px;">
+        <div class="row text-center">
+            <div class="card col-lg-4 col-md-6 col-12 mb-5 ">
+                <div class="card-body">
+                    <h3>Number of Members</h3>
+					<h1 class="text-info">{{m_count}}</h1>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-12 mb-5">
+                <div class="card-body">
+					<h3>Number of Users</h3>
+					<h1 class="text-info">{{u_count}}</h1>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-12 mb-5">
+                <div class="card-body">
+					<h3>Number of Book Issues</h3>
+					<h1 class="text-info">{{bi_count}}</h1>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-12 mb-5">
+                <div class="card-body">
+					<h3>Number of Books</h3>
+					<h1 class="text-info">{{b_count}}</h1>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-12 mb-5">
+                <div class="card-body">
+					<h3>Number of ***</h3> 
+					<h1 class="text-info">{{m_count}}</h1>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-12 mb-5">
+                <div class="card-body">
+					<h3>Number of **</h3>
+					<h1 class="text-info">{{m_count}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+		

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="card shadow col-12 col-md-8 m-auto">
+        <form class="col-12 col-md-11 m-auto mt-6" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Book Name</label>
+                    <input type="text" class="form-control" placeholder="Enter name" name="bname" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Author</label>
+                    <input type="text" class="form-control" placeholder="Enter author" name="author" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Quantity</span>
+                    </label>
+                    <input type="number" class="form-control" placeholder="Enter quantity" name="quantity" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Price</label>
+                    <input type="float" class="form-control" placeholder="Enter price" name="price" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Code No</label>
+                    <input type="tel" class="form-control" placeholder="Enter code number" name="codeno" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Book Category</span>
+                    </label>
+                    <select name="bookcategory" data-control="select2" data-placeholder="Select book category..." class="form-select" required>
+                        <option></option>
+                        <option value="1">Civils</option>
+                        <option value="2">Science</option>
+                        <option value="3">ME</option>
+                        <option value="4">Rack_90</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">ISBN</span>
+                    </label>
+                    <input type="text" class="form-control" placeholder="Enter isbn number" name="isbn" required/>                   
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Rack</label>
+                    <select name="rack" data-control="select2" data-placeholder="Select rack type..." class="form-select" required>
+                        <option></option>
+                        <option value="1">Rack_9</option>
+                        <option value="2">Rack_3</option>
+                        <option value="3">Rack_1</option>
+                    </select>                
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Cover Photo</label>
+                    <input type="file" class="form-control" placeholder="Choose photo" name="photo" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Eddition Number</label>
+                    <input type="text" class="form-control" placeholder="Enter publisher" name="editionnumber" required/>
+                </div>
+                <div class="col-12 col-md-4  fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Eddition Date</label>
+                    <input type="date" class="form-control" placeholder="Select date" name="editiondate" required/>
+                </div>
+                <div class="col-12 col-md-4  fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Published Date</label>
+                    <input type="date" class="form-control" placeholder="Select date" name="publisheddate" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Publisher</label>
+                    <input type="text" class="form-control" placeholder="Enter publisher" name="publisher" required/>
+                </div>
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Notes</label>
+                    <textarea class="form-control" placeholder="Enter edition number" name="notes" required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex m-auto mb-5" id="kt_careers_submit_button">
+                <span class="indicator-label">Submit</span>
+            </button>
+        </form>
+    </div>
+    
+	{% endblock content %}
+		

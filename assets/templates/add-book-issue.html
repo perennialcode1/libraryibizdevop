@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="card shadow col-12 col-md-8 m-auto mt-5" style="margin-bottom: 100px !important;">
+        <br>
+        <form class="col-12 col-md-11 m-auto mt-6" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-4 mb-md-6 d-flex justify-content-evenly">
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required"> <i class="bi bi-person-fill text-dark fs-5 me-2"></i>Member</span>
+                    </label>
+                    <select name="member" data-control="select2" data-placeholder="Select member..." class="form-select" required>
+                        <option></option>
+                        {% for i in member %}
+                            <option value="{{i.memberid}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required"><i class="bi bi-book text-dark me-2"></i>Book </span>
+                    </label>
+                    <select name="book" data-control="select2" data-placeholder="Select book..." class="form-select" required>
+                        <option></option>
+                        {% for i in book %}
+                            <option value="{{i.bookid}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-6 d-flex justify-content-evenly">
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required"><i class="bi bi-journal-plus text-dark me-2"></i>Book Number</span>
+                    </label>
+                    <select name="bookno" data-control="select2" data-placeholder="Select book number..." class="form-select" required>
+                        <option></option>
+                        {% for i in bookno %}
+                            <option value="{{i.bookissueid}}">{{i.bookno}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required"> <i class="bi bi-calendar-date text-dark me-2"></i>Issue Date </span>
+                    </label>
+                    <input type="date" class="form-control" name="issuedate">
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-12 d-flex justify-content-evenly">
+                <div class="col-12 col-md-12 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Notes</label>
+                    <textarea class="form-control" name="notes" placeholder="Enter notes.."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary d-flex m-auto mb-5" id="kt_careers_submit_button">
+                <span class="indicator-label">Submit Issue</span>
+            </button>
+        </form>
+    </div>
+    
+	{% endblock content %}
+		

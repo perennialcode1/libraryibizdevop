@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+	{% block content %}
+    <div class="card shadow col-12 col-md-8 m-auto">
+        <form class="col-12 col-md-11 m-auto mt-6" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="text-center mb-7">Edit Book</h1>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Book Name</label>
+                    <input type="text" class="form-control" placeholder="Enter name" name="bname" value="{{book.name}}" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Author</label>
+                    <input type="text" class="form-control" placeholder="Enter author" name="author" value="{{book.author}}" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Quantity</span>
+                    </label>
+                    <input type="number" class="form-control" placeholder="Enter quantity" name="quantity" value="{{book.quantity}}" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Price</label>
+                    <input type="float" class="form-control" placeholder="Enter price" name="price" value="{{book.price}}" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Code No</label>
+                    <input type="tel" class="form-control" placeholder="Enter code number" name="codeno" value="{{book.codeno}}" required/>
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">Book Category</span>
+                    </label>
+                    <select name="bookcategory" data-control="select2" data-placeholder="Select book category..." class="form-select" required>
+                        <option></option>
+                        <option value="1" {% if book.bookcategoryid == 1 %} selected {% endif %}>Rack_9</option>
+                        <option value="2" {% if book.bookcategoryid == 2 %} selected {% endif %}>Rack_3</option>
+                        <option value="3" {% if book.bookcategoryid == 3 %} selected {% endif %}>Rack_1</option>
+                        <option value="4" {% if book.bookcategoryid == 4 %} selected {% endif %}>Rack_90</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                        <span class="required">ISBN</span>
+                    </label>
+                    <input type="text" class="form-control" placeholder="Enter isbn number" name="isbn" value="{{book.isbnno}}" required/>                   
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Rack</label>
+                    <select name="rack" data-control="select2" data-placeholder="Select rack type..." class="form-select" required>
+                        <option></option>
+                        <option value="1" {% if book.rackid == 1 %} selected {% endif %}>Rack_9</option>
+                        <option value="2" {% if book.rackid == 2 %} selected {% endif %}>Rack_3</option>
+                        <option value="3" {% if book.rackid == 3 %} selected {% endif %}>Rack_1</option>
+                    </select>                
+                </div>
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Cover Photo</label>
+                    <input type="file" class="form-control" placeholder="Choose photo" name="photo" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-4 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Eddition Number</label>
+                    <input type="text" class="form-control" placeholder="Enter publisher" name="editionnumber" value="{{book.editionnumber}}" required/>
+                </div>
+                <div class="col-12 col-md-4  fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Eddition Date</label>
+                    <input type="date" class="form-control" placeholder="Select date" name="editiondate" value="{{book.editiondate|date:'Y-m-d'}}" required/>
+                </div>
+                <div class="col-12 col-md-4  fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Published Date</label>
+                    <input type="date" class="form-control" placeholder="Select date" name="publisheddate" value="{{book.publisheddate|date:'Y-m-d'}}" required/>
+                </div>
+            </div>
+            <div class="row mb-4 mb-md-5 d-flex justify-content-evenly">
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Publisher</label>
+                    <input type="text" class="form-control" placeholder="Enter publisher" name="publisher" value="{{book.publisher}}" required/>
+                </div>
+                <div class="col-12 col-md-6 fv-row mb-4">
+                    <label class="required fs-5 fw-semibold mb-2">Notes</label>
+                    <textarea class="form-control" placeholder="Enter edition number" name="notes" required>{{book.notes}}</textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex m-auto mb-5" id="kt_careers_submit_button">
+                <span class="indicator-label">Submit</span>
+            </button>
+        </form>
+    </div>
+    
+	{% endblock content %}
+		

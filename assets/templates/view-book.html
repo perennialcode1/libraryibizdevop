@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+	{% block content %}
+	<div class="container " style="margin-bottom: 200px; ">
+		<div class="row">
+			<div class="d-flex justify-content-end my-3">
+				<a href="{% url 'book_edit' book.bookid %}" class="me-4">
+					<button class="btn btn-dark">Edit <i class="fa-regular fa-pen-to-square"></i></button>
+				</a>
+				<a href="{% url 'books_list' %}" class="">
+					<button class="btn btn-primary shadow"><i class="fa-solid fa-arrow-left"></i>Go Back To Books</button>
+				</a>
+			</div>
+			<div class="card col-12">
+				<div class="card-header">
+					<h1 class="m-auto my-5">BOOK VIEW</h1>
+				</div>
+				<div class="d-flex m-6">
+					<table class="me-auto fs-3">
+						<thead></thead>
+						<tbody>
+							<tr>
+								<td>Name</td>
+							</tr>
+							<tr>
+								<td>Quantity</td>
+							</tr>
+							<tr>
+								<td>Code No</td>
+							</tr>
+							<tr>
+								<td>ISBN No</td>
+							</tr>
+							<tr>
+								<td>Edition Number</td>
+							</tr>
+							<tr>
+								<td>Publisher</td>
+							</tr>
+							<tr>
+								<td>Notes</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="ms-auto" style="margin-left: -30px !important; margin-right: 30px !important;">
+						<thead>
+							
+						</thead>
+						<tbody class="text-start">
+							<tr>
+								<th class="fs-3">{{book.name}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.quantity}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.codeno}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.isbnno}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.editionnumber}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.publisher}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.notes}}</th>
+							</tr>
+						</tbody>
+					</table>
+
+					<div style="border-left: 2px solid black" class="mx-6"></div>
+
+					<table class="me-auto fs-3" style="margin-left: 0px !important; margin-right: 30px !important;">
+						<thead></thead>
+						<tbody>
+							<tr>
+								<td>Author</td>
+							</tr>
+							<tr>
+								<td>Price</td>
+							</tr>
+							<tr>
+								<td>Book Category</td>
+							</tr>
+							<tr>
+								<td>Rack</td>
+							</tr>
+							<tr>
+								<td>Edition Date</td>
+							</tr>
+							<tr>
+								<td>Published Date</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="ms-auto">
+						<thead>
+							
+						</thead>
+						<tbody class="text-start">
+							<tr>
+								<th class="fs-3">{{book.author}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.price}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.bookcategoryid}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.rackid}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.editiondate}}</th>
+							</tr>
+							<tr>
+								<th class="fs-3">{{book.publisheddate}}</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				{% comment %} <div class="col-12 d-flex">
+					<div class="card-body d-flex justify-content-between">
+						<div>
+							<p class="fs-4">Name: <b>{{book.name}}</b></p>
+							<p class="fs-4">Quantity: <b>{{book.quantity}}</b></p>
+							<p class="fs-4">Code No: <b>{{book.codeno}}</b></p>
+							<p class="fs-4">ISBN No: <b>{{book.isbnno}}</b></p>
+							<p class="fs-4">Edition Number: <b>{{book.editionnumber}}</b></p>
+							<p class="fs-4">Publisher: <b>{{book.publisher}}</b></p>
+							<p class="fs-4">Notes: <b>{{book.notes}}</b></p>
+						</div>
+						<div style="border-left: 1px solid rgb(153, 163, 238);"></div>
+					</div>
+					<div class="col-6 mt-7">
+						<p class="fs-4">Author: <b>{{book.author}}</b></p>
+						<p class="fs-4">Price: <b>{{book.price}}</b></p>
+						<p class="fs-4">Book Category: <b>{{book.bookcategoryid}}</b></p>
+						<p class="fs-4">Rack: <b>{{book.rackid}}</b></p>
+						<p class="fs-4">Edition Date: <b>{{book.editiondate}}</b></p>
+						<p class="fs-4">Published Date: <b>{{book.publisheddate}}</b></p>
+					</div>
+				</div> {% endcomment %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}
